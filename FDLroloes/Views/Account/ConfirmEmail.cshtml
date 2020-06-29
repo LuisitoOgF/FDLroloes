@@ -2,9 +2,22 @@
     ViewBag.Title = "Confirm Email";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </p>
-</div>
+<section class="section bg-light py-5  bottom-slant-gray">
+
+    <div class="clearfix mb-5 pb-5 ">
+        <div class="container-fluid">
+            <div class="row" data-aos="fade">
+                <div class="col-md-12 text-center heading-wrap">
+                    <h2>Confirmación</h2>
+
+                    <h2>@ViewBag.Title.</h2>
+                    <div>
+                        <p>
+                            Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

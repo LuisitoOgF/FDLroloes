@@ -20,6 +20,8 @@
     @Styles.Render("~/fonts/flaticon/font/flaticon.css")
 
     @Styles.Render("~/Content/style.css")
+    @Styles.Render("~/Content/estiloscar.css")
+    @Styles.Render("~/Content/estiloslog.css")
 
 </head>
 <body>
@@ -55,40 +57,84 @@
     <header role="banner">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Fonda Pila</a>
+                <a class="navbar-brand"  href='@Url.Action("Index", "Home")'>Fonda Pila</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarsExample05">
                     <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Inicio</a>
-                        </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link " href="categorias.html">Categorias</a>
-                        </li>
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" href='@Url.Action("Index", "Home")'>Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href='@Url.Action("Categorias", "Home")'>Categorias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href='@Url.Action("About", "Home")'>Conocenos</a>
+                            </li>
+                        }
+                        @if (Request.IsAuthenticated && User.IsInRole("Cliente"))
+                        {
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Conocenos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="carrito.html">Carrito</a>
-                        </li>
+                        /*    <ul class="navbar-nav ml-auto">
+                                <li class="nav-item cta-btn">
+                                    <a class="nav-link" href='@Url.Action("Login", "Acount")'>Login</a>
+                                </li>
+                            </ul>
+                         */
+                            <li class="nav-item">
+                                <a class="nav-link" href='@Url.Action("Carrito", "Home")'>Carrito</a>
+                            </li>
+                        }
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href='@Url.Action("Index", "RolesAdmin")'>RolesAdmin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href='@Url.Action("Index", "UsersAdmin")'>UsersAdmin</a>
+                            </li>
+                        }
                     </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item cta-btn">
-                            <a class="nav-link" href="login.html">Login</a>
-                        </li>
-                    </ul>
-
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </nav>
     </header>
     <!-- END header -->
 
+    <div class="slider-wrap">
+        <section class="home-slider owl-carousel">
+
+            <div class="slider-item" style="background-image: url(/img/banner1.jpg);">
+
+                <div class="container">
+                    <div class="row slider-text align-items-center justify-content-center">
+                        <div class="col-md-8 text-center col-sm-12 ">
+                            <h1 data-aos="fade-up">LA MEJOR COCINA</h1>
+                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100"> Bienvenido.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item" style="background-image: url(/img/banner2.jpg);">
+                <div class="container">
+                    <div class="row slider-text align-items-center justify-content-center">
+                        <div class="col-md-8 text-center col-sm-12 ">
+                            <h1 data-aos="fade-up">FUNDETE EN NUESTROS SABORES</h1>
+                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100"> Bienvenido </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- END slider -->
+    </div>
 
     <div class="">
         @RenderBody()
@@ -149,5 +195,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#cf1d16" /></svg></div>
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/magnific-popup-options.js"></script>
+
+    <script src="~/Scripts/main.js"></script>
+
 </body>
 </html>

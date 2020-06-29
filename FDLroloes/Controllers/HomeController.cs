@@ -14,6 +14,20 @@ namespace IdentitySample.Controllers
 
         [HttpGet]
         [Authorize]
+        public ActionResult Categorias()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Carrito()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

@@ -500,6 +500,8 @@
     <Content Include="scss\_type.scss" />
     <Content Include="scss\_utilities.scss" />
     <Content Include="scss\_variables.scss" />
+    <Content Include="Views\Home\Categorias.cshtml" />
+    <Content Include="Views\Home\Carrito.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -81,9 +81,12 @@ namespace IdentitySample.Models
         public string ConfirmPassword { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        
-        [Display(Name = "Nombre")]
+        [Display(Name = "UserNombre")]
         public string Nombre { get; set; }
+
+      //  [Required(AllowEmptyStrings = false)]
+      //  [Display(Name = "Apellido")]
+      //  public string Apellido { get; set; }
     }
 
     public class ResetPasswordViewModel
