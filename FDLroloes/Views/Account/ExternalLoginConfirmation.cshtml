@@ -11,7 +11,7 @@
                         <h2>Registro Logeo externo</h2>
 
                         <h2>@ViewBag.Title.</h2>
-                        <h3>Associate your @ViewBag.LoginProvider account.</h3>
+                        <h3>Asociarse @ViewBag.LoginProvider nuevo.</h3>
 
                         @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
@@ -19,9 +19,8 @@
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <p class="text-info">
-                                You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
-                                Please enter a user name for this site below and click the Register button to finish
-                                logging in.
+                                Validando autenticacion <strong>@ViewBag.LoginProvider</strong>.
+                                Por favor presione el link para finalizar.
                             </p>
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
