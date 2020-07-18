@@ -57,7 +57,7 @@
     <header role="banner">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand"  href='@Url.Action("Index", "Home")'>Fonda Pila</a>
+                <a class="navbar-brand" href='@Url.Action("Index", "Home")'>Fonda Pila</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -79,15 +79,13 @@
                         @if (Request.IsAuthenticated && User.IsInRole("Cliente"))
                         {
 
-                        /*    <ul class="navbar-nav ml-auto">
-                                <li class="nav-item cta-btn">
-                                    <a class="nav-link" href='@Url.Action("Login", "Acount")'>Login</a>
-                                </li>
-                            </ul>
-                         */
-                            <li class="nav-item">
-                                <a class="nav-link" href='@Url.Action("Carrito", "Home")'>Carrito</a>
-                            </li>
+                            /*    <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item cta-btn">
+                                        <a class="nav-link" href='@Url.Action("Login", "Acount")'>Login</a>
+                                    </li>
+                                </ul>
+                             */
+
                         }
                         @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                         {
@@ -105,6 +103,20 @@
         </nav>
     </header>
     <!-- END header -->
+   
+    
+    <!-- ChatBot -->
+    <div class="">
+        <button type="button" class="btn btn-info fixed-bottom" data-toggle="modal" data-target="#myModal">
+            ¿Necesitas ayuda?
+        </button>
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-body">
+            <iframe src="https://powerva.microsoft.com/webchat/bots/8e86a3a5-29c5-41c7-816b-145154bbda7b" frameborder="0" style="width: 400px; height: 600px;"></iframe>
+        </div>
+    </div>
+
 
     <div class="slider-wrap">
         <section class="home-slider owl-carousel">
